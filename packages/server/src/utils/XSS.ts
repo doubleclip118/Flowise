@@ -71,7 +71,8 @@ export function getCorsOptions(): any {
 
                 // Non-prediction: rely on global policy only
                 return originCallback(null, globallyAllowed)
-            }
+            },
+            credentials: true
         }
         callback(null, corsOptions)
     }
