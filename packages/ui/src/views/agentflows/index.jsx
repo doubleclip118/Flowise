@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 
 // material-ui
-import { Chip, Box, Stack, ToggleButton, ToggleButtonGroup, IconButton } from '@mui/material'
+import { Box, Stack, ToggleButton, ToggleButtonGroup, IconButton } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 
 // project imports
@@ -46,7 +46,7 @@ const Agentflows = () => {
 
     const getAllAgentflows = useApi(chatflowsApi.getAllAgentflows)
     const [view, setView] = useState(localStorage.getItem('flowDisplayStyle') || 'card')
-    const [agentflowVersion, setAgentflowVersion] = useState(localStorage.getItem('agentFlowVersion') || 'v2')
+    const [agentflowVersion, setAgentflowVersion] = useState('v2') // Always use v2
     const [showDeprecationNotice, setShowDeprecationNotice] = useState(true)
 
     /* Table Pagination */
@@ -181,7 +181,8 @@ const Agentflows = () => {
                         title='Agentflows'
                         description='Multi-agent systems, workflow orchestration'
                     >
-                        <ToggleButtonGroup
+                        {/* Version selector hidden - always using v2 */}
+                        {/* <ToggleButtonGroup
                             sx={{ borderRadius: 2, maxHeight: 40 }}
                             value={agentflowVersion}
                             color='primary'
@@ -202,6 +203,7 @@ const Agentflows = () => {
                                 V2
                             </ToggleButton>
                             <ToggleButton
+                                disabled
                                 sx={{
                                     borderColor: theme.palette.grey[900] + 25,
                                     borderRadius: 2,
@@ -209,11 +211,11 @@ const Agentflows = () => {
                                 }}
                                 variant='contained'
                                 value='v1'
-                                title='V1'
+                                title='V1 (Deprecated)'
                             >
                                 V1
                             </ToggleButton>
-                        </ToggleButtonGroup>
+                        </ToggleButtonGroup> */}
                         <ToggleButtonGroup
                             sx={{ borderRadius: 2, maxHeight: 40 }}
                             value={view}
