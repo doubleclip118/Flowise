@@ -68,14 +68,14 @@ export const DefaultRedirect = () => {
         return <Login />
     }
 
-    // For open source, show chatflows (no permission checks)
+    // For open source, show chatflows (no permission checks) -> agentflow로 수정
     if (isOpenSource) {
-        return <Chatflows />
+        return <Agentflows />
     }
 
-    // For global admins, show chatflows (they have access to everything)
+    // For global admins, show chatflows (they have access to everything) -> agentflow로 수정
     if (isGlobal) {
-        return <Chatflows />
+        return <Agentflows />
     }
 
     // Check each route in order and return the first accessible component
